@@ -1,5 +1,7 @@
 # Traffic Kor
 
+![Traffic Kor preview](traffic_kor.png)
+
 Minecraft Bedrock용 한국 도로 교통 애드온입니다. 교통 신호등, 보행자 신호등, 차선, 정지선, 횡단보도, 진행 방향 표시를 완드로 배치하고, 컨트롤러 엔티티로 신호 주기를 관리합니다.
 
 ## 한국어
@@ -75,6 +77,10 @@ com.mojang/
 - Z축 보행자 카운트다운: 8초
 
 한 차원 안에서 같은 그룹 ID를 가진 컨트롤러는 하나만 두는 것이 좋습니다. 중복 컨트롤러는 이름표에 `DUP`로 표시됩니다.
+
+### 참고사항
+
+권장하는 도로 폭은 2차선 기준 9블록입니다. 7블록도 가능하지만, 사용하는 차량 애드온에 따라 좁을 수 있습니다.
 
 ## English
 
@@ -153,6 +159,10 @@ Particle-based diagonal line tools are available through a separate function.
 - Z pedestrian countdown: 8 seconds
 
 Use only one controller per group in the same dimension. Duplicate controllers with the same group are marked with `DUP` in their name tag.
+
+### Notes
+
+The recommended road width is 9 blocks for a two-lane road. A 7-block width is also possible, but it may be narrow depending on the vehicle add-on being used.
 
 ## License
 

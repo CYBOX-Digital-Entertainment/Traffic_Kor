@@ -3,6 +3,7 @@
 !.gitattributes
 !README.md
 !LICENSE
+!traffic_kor.png
 
 !development_behavior_packs/
 development_behavior_packs/*
