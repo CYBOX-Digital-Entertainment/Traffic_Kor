@@ -2,7 +2,7 @@
 
 ![Traffic Kor preview](traffic_kor.png)
 
-Minecraft Bedrock용 한국 도로 교통 애드온입니다. 교통 신호등, 보행자 신호등, 차선, 정지선, 횡단보도, 진행 방향 표시를 완드로 배치하고, 컨트롤러 엔티티로 신호 주기를 관리합니다.
+Minecraft Bedrock용 한국형 도로 교통 애드온입니다. 차량 신호등, 보행자 신호등, 차선, 정지선, 횡단보도, 진행 방향 표시를 월드에 배치하고, 컨트롤러 엔티티로 신호 주기를 관리할 수 있습니다.
 
 ## 한국어
 
@@ -10,13 +10,13 @@ Minecraft Bedrock용 한국 도로 교통 애드온입니다. 교통 신호등, 
 
 - `development_behavior_packs/Traffic_Kor_BP`: 엔티티 동작, 아이템, 함수, Script API 로직
 - `development_resource_packs/Traffic_Kor_RP`: 모델, 텍스처, 애니메이션, 언어 파일
-- 최소 엔진 버전: Minecraft Bedrock `1.21.90`
+- 최소 엔진 버전: Minecraft Bedrock `v26.21` (`min_engine_version`: `[1, 26, 21]`)
 
-월드에서 BP와 RP를 모두 활성화해야 정상 동작합니다.
+월드 설정에서 BP와 RP를 모두 활성화해야 정상적으로 작동합니다.
 
 ### 설치
 
-개발 환경에서는 이 저장소를 `com.mojang` 폴더 아래에 두면 됩니다.
+개발 환경에서는 이 저장소를 `com.mojang` 폴더 아래에 둡니다.
 
 ```text
 com.mojang/
@@ -26,44 +26,55 @@ com.mojang/
     Traffic_Kor_RP/
 ```
 
-압축 파일로 받은 경우에는 `Traffic_Kor_BP`를 `development_behavior_packs`에, `Traffic_Kor_RP`를 `development_resource_packs`에 넣으세요.
+압축 파일로 받은 경우 `Traffic_Kor_BP`는 `development_behavior_packs`에, `Traffic_Kor_RP`는 `development_resource_packs`에 넣습니다.
 
 ### 가장 간단한 사용법
 
 1. 월드 설정에서 `XK Traffic System KOR BP`와 `XK Traffic System KOR RP`를 활성화합니다.
-2. 명령어를 사용할 수 있게 치트를 켭니다.
-3. 월드에 들어가서 아래 명령어로 기본 도구를 한 번에 받습니다.
+2. 명령어를 사용할 수 있도록 치트를 켭니다.
+3. 월드에 들어가 아래 명령어로 기본 도구를 한 번에 받습니다.
 
 ```mcfunction
 /function traffic/give_tools
 ```
 
 4. `Traffic Control Wand`로 교차로에 컨트롤러를 하나 설치합니다. 컨트롤러를 설치하면 새 그룹이 자동으로 선택됩니다.
-5. 차량 신호등, 보행자 신호등, 차선, 정지선, 횡단보도 완드를 들고 블록 윗면에 사용해 배치합니다.
-6. 컨트롤러 설치 후 신호등을 배치하면 선택된 그룹에 자동 연결됩니다.
+5. 차량 신호등, 보행자 신호등, 차선, 정지선, 횡단보도 도구를 들고 블록 윗면에 사용해 배치합니다.
+6. 컨트롤러 설치 후 배치한 신호등은 현재 선택된 그룹에 자동으로 연결됩니다.
 7. `Traffic Control Wand`를 컨트롤러에 사용하면 신호 시간 설정 UI가 열립니다.
 
-대부분의 경우 이 흐름만으로 교차로 하나를 만들 수 있습니다.
+이 과정만으로 기본 교차로를 구성할 수 있습니다.
 
 ### 추가 도구
 
-파티클 기반 대각선 라인 도구는 별도 명령어로 받습니다.
+파티클 기반 사선 차선 도구는 별도 함수로 받을 수 있습니다.
 
 ```mcfunction
 /function traffic/give_particle_tools
 ```
 
-### 완드 동작
+### 도구 동작
 
-- 설치 완드: 블록 윗면에 해당 교통 엔티티를 배치합니다.
-- 같은 설치 완드를 이미 설치된 같은 엔티티에 사용: 엔티티를 90도 회전합니다.
-- 다른 설치 완드를 설치된 교통 엔티티에 사용: 같은 위치에 새 교통 엔티티를 배치합니다.
-- `Traffic Control Wand`: 컨트롤러 설치, 컨트롤러 설정 UI 열기
-- `Group Manager Wand`: 컨트롤러 그룹 설정, 신호등 그룹 연결/해제, X/Z축 변경
-- `Remove Wand`: 교통 엔티티 삭제. 왼쪽 공격으로 연결된 직선 라인 묶음을 삭제할 수 있습니다.
-- `Road Signal Wand`: 차량 신호등 배치. 차량 신호등을 왼쪽 공격하면 모델이 전환됩니다.
-- `Guideline Wand`: 가이드라인 배치. 가이드라인을 왼쪽 공격하면 크기/모델이 전환됩니다.
-- `Stop Line Wand`: 정지선 배치. 정지선을 왼쪽 공격하면 텍스처 프레임이 바뀝니다.
+- 배치 도구: 블록 윗면에 해당 교통 엔티티를 배치합니다.
+- 같은 배치 도구를 이미 설치된 같은 엔티티에 사용: 엔티티를 90도 회전합니다.
+- 다른 배치 도구를 이미 설치된 교통 엔티티에 사용: 같은 위치에 새 교통 엔티티를 배치합니다.
+- `Traffic Control Wand`: 컨트롤러 배치, 컨트롤러 신호 시간 설정 UI 열기
+- `Group Manager Wand`: 컨트롤러 그룹 설정, 신호등 그룹 연결/해제, X/Z 축 변경
+- `Remove Wand`: 교통 엔티티 제거. 왼쪽 클릭/공격으로 연결된 직선 차선 묶음을 한 번에 제거할 수 있습니다.
+- `Road Signal Wand`: 차량 신호등 배치. 설치된 차량 신호등을 이 도구로 왼쪽 클릭/공격하면 신호등 모델이 순환됩니다.
+- `Guideline Wand`: 가이드라인 배치. 설치된 가이드라인을 왼쪽 클릭/공격하면 크기/모델이 순환됩니다.
+- `Stop Line Wand`: 정지선 배치. 설치된 정지선을 왼쪽 클릭/공격하면 텍스처 프레임이 순환됩니다.
+
+### 차량 신호등 모델 바꾸기
+
+차량 신호등은 하나의 `traffic:road_signal` 엔티티 안에 3가지 모델을 가지고 있습니다. 일반 모델을 설치한 뒤에도 다시 지우고 설치할 필요 없이 모델만 바꿀 수 있습니다.
+
+1. `Road Signal Wand`를 손에 듭니다.
+2. 이미 설치된 차량 신호등 엔티티를 조준합니다.
+3. 왼쪽 클릭/공격합니다.
+4. 채팅에 `Road signal model set to 1`, `2`, `3` 중 하나가 표시되며 모델이 바뀝니다.
+
+모델은 `1 -> 2 -> 3 -> 1` 순서로 순환합니다. 1번은 기본 차량 신호등이고, 2번과 3번은 더 길게 뻗은 신호등 모델입니다. 큰 도로에서는 2번 또는 3번 모델을 사용하면 차로 중앙 쪽으로 신호등을 더 뻗어 보이게 할 수 있습니다.
 
 ### 컨트롤러 기본값
 
@@ -76,29 +87,31 @@ com.mojang/
 - Z축 보행자 보행: 8초
 - Z축 보행자 카운트다운: 8초
 
-한 차원 안에서 같은 그룹 ID를 가진 컨트롤러는 하나만 두는 것이 좋습니다. 중복 컨트롤러는 이름표에 `DUP`로 표시됩니다.
+같은 차원 안에서는 같은 그룹 ID를 가진 컨트롤러를 하나만 두는 것이 좋습니다. 중복 컨트롤러는 이름표에 `DUP`로 표시됩니다.
 
 ### 참고사항
 
-권장하는 도로 폭은 2차선 기준 9블록입니다. 7블록도 가능하지만, 사용하는 차량 애드온에 따라 좁을 수 있습니다.
+- 권장하는 도로 폭은 2차선 기준 9블록입니다. 7블록도 가능하지만 사용하는 차량 애드온에 따라 좁을 수 있습니다.
+- 신호 주기가 느리게 보이면 컨트롤러와 신호등이 같은 교차로 근처에 있는지 확인하세요. 컨트롤러가 주변 신호를 갱신하는 구조라, 너무 멀리 떨어진 신호는 청크 로딩 상태에 따라 늦게 갱신될 수 있습니다.
+- 차량 신호등 길이가 맞지 않을 때는 `Road Signal Wand`를 든 상태로 설치된 차량 신호등을 왼쪽 클릭/공격해 1번, 2번, 3번 모델을 순환해 보세요.
 
 ## English
 
 ### Overview
 
-Traffic Kor is a Minecraft Bedrock add-on for Korean-style road traffic props. It provides traffic lights, pedestrian signals, lane markings, stop lines, crosswalks, and direction markings that can be placed with wand items and controlled with in-world controller entities.
+Traffic Kor is a Korean-style road traffic add-on for Minecraft Bedrock. It provides road signals, pedestrian signals, lane markings, stop lines, crosswalks, and direction markings that can be placed with wand items and controlled with in-world controller entities.
 
 ### Structure
 
 - `development_behavior_packs/Traffic_Kor_BP`: entity behavior, items, functions, and Script API logic
 - `development_resource_packs/Traffic_Kor_RP`: models, textures, animations, and language files
-- Minimum engine version: Minecraft Bedrock `1.21.90`
+- Minimum engine version: Minecraft Bedrock `v26.21` (`min_engine_version`: `[1, 26, 21]`)
 
 Both the behavior pack and resource pack must be enabled in the world.
 
 ### Installation
 
-For development, keep this repository under your `com.mojang` folder so the pack folders stay in the expected Bedrock locations.
+For development, keep this repository under your `com.mojang` folder.
 
 ```text
 com.mojang/
@@ -121,7 +134,7 @@ If you downloaded a zip, place `Traffic_Kor_BP` in `development_behavior_packs` 
 ```
 
 4. Use the `Traffic Control Wand` to place one controller for the intersection. Placing a controller automatically creates and selects a group.
-5. Use the signal, lane, stop-line, and crosswalk wands on the top face of blocks to place traffic props.
+5. Use the road signal, pedestrian signal, lane, stop-line, and crosswalk wands on the top face of blocks to place traffic props.
 6. Signals placed after a controller are automatically linked to the selected group.
 7. Use the `Traffic Control Wand` on the controller to open the timing settings UI.
 
@@ -143,9 +156,20 @@ Particle-based diagonal line tools are available through a separate function.
 - `Traffic Control Wand`: place controllers and open the controller timing UI.
 - `Group Manager Wand`: edit controller groups, link or unlink signals, and switch X/Z axis.
 - `Remove Wand`: remove traffic entities. Left-hit can remove connected straight-line runs.
-- `Road Signal Wand`: place road signals. Left-hit a road signal to switch its model.
-- `Guideline Wand`: place guidelines. Left-hit a guideline to switch its size/model.
-- `Stop Line Wand`: place stop lines. Left-hit a stop line to switch its texture frame.
+- `Road Signal Wand`: place road signals. Left-hit a placed road signal with this wand to cycle its model.
+- `Guideline Wand`: place guidelines. Left-hit a guideline to cycle its size/model.
+- `Stop Line Wand`: place stop lines. Left-hit a stop line to cycle its texture frame.
+
+### Switching Road Signal Models
+
+Road signals use one `traffic:road_signal` entity with three model variants. You do not need to remove and replace a signal to change its length.
+
+1. Hold the `Road Signal Wand`.
+2. Aim at an already placed road signal entity.
+3. Left-hit/attack it.
+4. Chat will show `Road signal model set to 1`, `2`, or `3`, and the model will change.
+
+The models cycle in this order: `1 -> 2 -> 3 -> 1`. Model 1 is the default road signal, while models 2 and 3 are longer extended versions. Use model 2 or 3 on wider roads when the signal head needs to reach farther toward the lane center.
 
 ### Default Controller Timing
 
@@ -162,7 +186,9 @@ Use only one controller per group in the same dimension. Duplicate controllers w
 
 ### Notes
 
-The recommended road width is 9 blocks for a two-lane road. A 7-block width is also possible, but it may be narrow depending on the vehicle add-on being used.
+- The recommended road width is 9 blocks for a two-lane road. A 7-block width is also possible, but it may be narrow depending on the vehicle add-on being used.
+- If signal changes appear slow, check that the controller is placed near the signals for that intersection. Controllers update nearby grouped signals, and far-away signals can update late depending on chunk loading.
+- If a road signal does not reach far enough over the road, hold the `Road Signal Wand` and left-hit the placed signal to cycle through model 1, 2, and 3.
 
 ## License
 
