@@ -2,6 +2,7 @@
 !.gitignore
 !.gitattributes
 !README.md
+!LICENSE
 
 !development_behavior_packs/
 development_behavior_packs/*
