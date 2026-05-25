@@ -54,7 +54,18 @@
       },
       "minecraft:persistent": {},
       "minecraft:is_hidden_when_invisible": {},
-      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_dropped_ticks": 0,
+          "max_optimized_distance": 1024,
+          "use_motion_prediction_hints": true
+        }
+      },
+      "minecraft:tick_world": {
+        "distance_to_players": 128,
+        "never_despawn": true,
+        "radius": 2
+      },
       "minecraft:interact": {
         "interactions": [
           {
