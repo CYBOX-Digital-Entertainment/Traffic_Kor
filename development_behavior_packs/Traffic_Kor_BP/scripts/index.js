@@ -318,6 +318,18 @@ function getBoolProperty(entity, propertyId, fallback = false) {
   return typeof value === "boolean" ? value : fallback;
 }
 
+function setIntPropertyIfChanged(entity, propertyId, value) {
+  if (getIntProperty(entity, propertyId, Number.NaN) !== value) {
+    entity.setProperty(propertyId, value);
+  }
+}
+
+function setNameTagIfChanged(entity, value) {
+  if (entity.nameTag !== value) {
+    entity.nameTag = value;
+  }
+}
+
 function isClose(a, b, epsilon = POSITION_EPSILON) {
   return Math.abs(a - b) <= epsilon;
 }
@@ -1090,7 +1102,7 @@ function cyclePedSignal(entity) {
 function updateControllerNameTag(entity, duplicate = false) {
   const groupId = getIntProperty(entity, "traffic:group_id", 1);
   if (duplicate) {
-    entity.nameTag = `CTL G${groupId} DUP`;
+    setNameTagIfChanged(entity, `CTL G${groupId} DUP`);
     return;
   }
 
@@ -1104,7 +1116,10 @@ function updateControllerNameTag(entity, duplicate = false) {
   const zPedWalk = getIntProperty(entity, "traffic:z_ped_walk", 8);
   const zPedFlash = getIntProperty(entity, "traffic:z_ped_flash", 8);
 
-  entity.nameTag = `CTL G${groupId} ${enabled} XG${xRoadGreen} ZG${zRoadGreen} Y${roadYellow} AR${allRed} XP${xPedWalk}/${xPedFlash} ZP${zPedWalk}/${zPedFlash}`;
+  setNameTagIfChanged(
+    entity,
+    `CTL G${groupId} ${enabled} XG${xRoadGreen} ZG${zRoadGreen} Y${roadYellow} AR${allRed} XP${xPedWalk}/${xPedFlash} ZP${zPedWalk}/${zPedFlash}`,
+  );
 }
 
 function getNextControllerGroup(dimension) {
@@ -1167,6 +1182,7 @@ function getFloorMarkingSurfaceOffset(typeId) {
 
 function migrateExistingFloorMarkingsInDimension(dimensionId) {
   const dimension = world.getDimension(dimensionId);
+  const changedLines = [];
 
   for (const typeId of floorMarkingTypes) {
     for (const entity of dimension.getEntities({ type: typeId })) {
@@ -1179,18 +1195,13 @@ function migrateExistingFloorMarkingsInDimension(dimensionId) {
       const blockY = Math.round(entity.location.y - surfaceOffset);
       const targetY = blockY + surfaceOffset;
       if (isClose(entity.location.y, targetY, 0.01) && Math.abs(legacyOffsetX) <= POSITION_EPSILON) {
-        updateStraightLineTilt(entity);
         continue;
       }
-
-      const nextY = entity.location.y > targetY
-        ? Math.max(targetY, entity.location.y - 0.08)
-        : Math.min(targetY, entity.location.y + 0.08);
 
       entity.teleport(
         {
           x: entity.location.x + legacyOffsetX,
-          y: nextY,
+          y: targetY,
           z: entity.location.z,
         },
         {
@@ -1199,6 +1210,14 @@ function migrateExistingFloorMarkingsInDimension(dimensionId) {
           checkForBlocks: false,
         },
       );
+      if (autoFillLineTypes.has(entity.typeId)) {
+        changedLines.push(entity);
+      }
+    }
+  }
+
+  for (const entity of changedLines) {
+    if (entity.isValid) {
       updateStraightLineTilt(entity);
     }
   }
@@ -1258,12 +1277,12 @@ function getMainhandItem(player) {
   return equippable.getEquipment(EquipmentSlot.Mainhand);
 }
 
-function collectSignalsByGroup(dimension, typeId) {
+function collectSignalsByGroup(dimension, typeId, allowedGroups = undefined) {
   const map = new Map();
 
   for (const entity of dimension.getEntities({ type: typeId })) {
     const groupId = getIntProperty(entity, "traffic:group_id", 0);
-    if (groupId <= 0) {
+    if (groupId <= 0 || (allowedGroups && !allowedGroups.has(groupId))) {
       continue;
     }
 
@@ -1344,11 +1363,28 @@ function getControllerState(controller) {
 
 function processControllersInDimension(dimensionId) {
   const dimension = world.getDimension(dimensionId);
-  const roadSignals = collectSignalsByGroup(dimension, "traffic:road_signal");
-  const pedSignals = collectSignalsByGroup(dimension, "traffic:ped_signal");
+  const controllers = dimension.getEntities({ type: "traffic:controller" });
+  if (controllers.length === 0) {
+    return;
+  }
+
+  const controllerGroups = new Set();
+  for (const controller of controllers) {
+    const groupId = getIntProperty(controller, "traffic:group_id", 1);
+    if (groupId >= 1 && groupId <= MAX_GROUP) {
+      controllerGroups.add(groupId);
+    }
+  }
+
+  if (controllerGroups.size === 0) {
+    return;
+  }
+
+  const roadSignals = collectSignalsByGroup(dimension, "traffic:road_signal", controllerGroups);
+  const pedSignals = collectSignalsByGroup(dimension, "traffic:ped_signal", controllerGroups);
   const processedGroups = new Set();
 
-  for (const controller of dimension.getEntities({ type: "traffic:controller" })) {
+  for (const controller of controllers) {
     const groupId = getIntProperty(controller, "traffic:group_id", 1);
 
     if (processedGroups.has(groupId)) {
@@ -1361,11 +1397,19 @@ function processControllersInDimension(dimensionId) {
 
     const state = getControllerState(controller);
     for (const roadSignal of roadSignals.get(groupId) ?? []) {
-      roadSignal.setProperty("traffic:road_state", getSignalAxis(roadSignal) === AXIS_X ? state.xRoad : state.zRoad);
+      setIntPropertyIfChanged(
+        roadSignal,
+        "traffic:road_state",
+        getSignalAxis(roadSignal) === AXIS_X ? state.xRoad : state.zRoad,
+      );
     }
 
     for (const pedSignal of pedSignals.get(groupId) ?? []) {
-      pedSignal.setProperty("traffic:ped_state", getSignalAxis(pedSignal) === AXIS_X ? state.xPed : state.zPed);
+      setIntPropertyIfChanged(
+        pedSignal,
+        "traffic:ped_state",
+        getSignalAxis(pedSignal) === AXIS_X ? state.xPed : state.zPed,
+      );
     }
 
     if (!getBoolProperty(controller, "traffic:enabled", true) || state.total <= 0) {
@@ -1838,7 +1882,7 @@ system.runInterval(() => {
   }
 }, 20);
 
-let remainingFloorMigrationPasses = 60;
+let remainingFloorMigrationPasses = 1;
 const floorMigrationIntervalId = system.runInterval(() => {
   for (const dimensionId of DIMENSION_IDS) {
     migrateExistingFloorMarkingsInDimension(dimensionId);
