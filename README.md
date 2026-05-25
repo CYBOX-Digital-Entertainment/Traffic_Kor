@@ -87,7 +87,9 @@ com.mojang/
 - Z축 보행자 보행: 8초
 - Z축 보행자 카운트다운: 8초
 
-같은 차원 안에서는 같은 그룹 ID를 가진 컨트롤러를 하나만 두는 것이 좋습니다. 중복 컨트롤러는 이름표에 `DUP`로 표시됩니다.
+한 월드 안에 교차로를 여러 개 만들어도 됩니다. 교차로마다 `Traffic Control Wand`로 컨트롤러를 하나씩 설치하면 비어 있는 새 그룹 ID가 자동으로 배정됩니다. 예를 들어 첫 번째 교차로가 그룹 1이면, 다음 교차로는 보통 그룹 2로 잡힙니다.
+
+주의할 점은 같은 차원 안에서 같은 그룹 ID를 가진 컨트롤러를 여러 개 두는 경우입니다. 이 경우 서로 다른 교차로가 아니라 같은 신호 그룹을 중복 제어하려는 컨트롤러로 취급되며, 중복 컨트롤러 이름표에 `DUP`가 표시됩니다. 떨어진 곳에 새 교차로를 만들 때는 컨트롤러와 신호등이 서로 다른 그룹 ID를 쓰도록 하면 됩니다.
 
 ### 참고사항
 
@@ -182,7 +184,9 @@ The models cycle in this order: `1 -> 2 -> 3 -> 1`. Model 1 is the default road 
 - Z pedestrian walk: 8 seconds
 - Z pedestrian countdown: 8 seconds
 
-Use only one controller per group in the same dimension. Duplicate controllers with the same group are marked with `DUP` in their name tag.
+You can build multiple intersections in the same world. Place one controller per intersection with the `Traffic Control Wand`; each new controller automatically receives an unused group ID. For example, if the first intersection uses group 1, the next one will usually use group 2.
+
+The important rule is to avoid multiple controllers with the same group ID in the same dimension. Those are treated as duplicate controllers for the same signal group, and duplicate controllers are marked with `DUP` in their name tag. For a separate intersection farther away, use a separate group ID for that controller and its signals.
 
 ### Notes
 
