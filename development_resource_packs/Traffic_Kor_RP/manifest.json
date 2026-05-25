@@ -5,7 +5,7 @@
     "description": "Add-on by CYBOX DIGITAL ENTERTAINMENT",
     "uuid": "73ad5f24-1b82-4fcc-9bcc-0d3bb7e21012",
     "version": [1, 0, 0],
-    "min_engine_version": [1, 21, 90]
+    "min_engine_version": [1, 26, 21]
   },
   "modules": [
     {
