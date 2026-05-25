@@ -1,0 +1,17 @@
+{
+  "format_version": "1.20.20",
+  "minecraft:item": {
+    "description": {
+      "identifier": "traffic:gos_tr_wand"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "gos_tr_wand"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.traffic:gos_tr_wand.name"
+      }
+    }
+  }
+}

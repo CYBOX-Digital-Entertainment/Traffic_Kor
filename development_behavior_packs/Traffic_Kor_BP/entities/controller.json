@@ -1,0 +1,163 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "traffic:controller",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "traffic:group_id": {
+          "type": "int",
+          "range": [
+            1,
+            99
+          ],
+          "default": 1
+        },
+        "traffic:x_road_green": {
+          "type": "int",
+          "range": [
+            5,
+            120
+          ],
+          "default": 30
+        },
+        "traffic:z_road_green": {
+          "type": "int",
+          "range": [
+            5,
+            120
+          ],
+          "default": 30
+        },
+        "traffic:road_yellow": {
+          "type": "int",
+          "range": [
+            1,
+            20
+          ],
+          "default": 4
+        },
+        "traffic:all_red": {
+          "type": "int",
+          "range": [
+            0,
+            20
+          ],
+          "default": 2
+        },
+        "traffic:x_ped_walk": {
+          "type": "int",
+          "range": [
+            1,
+            60
+          ],
+          "default": 8
+        },
+        "traffic:x_ped_flash": {
+          "type": "int",
+          "range": [
+            0,
+            8
+          ],
+          "default": 8
+        },
+        "traffic:z_ped_walk": {
+          "type": "int",
+          "range": [
+            1,
+            60
+          ],
+          "default": 8
+        },
+        "traffic:z_ped_flash": {
+          "type": "int",
+          "range": [
+            0,
+            8
+          ],
+          "default": 8
+        },
+        "traffic:cycle_second": {
+          "type": "int",
+          "range": [
+            0,
+            511
+          ],
+          "default": 0
+        },
+        "traffic:enabled": {
+          "type": "bool",
+          "default": true
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "traffic",
+          "traffic_controller"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.4,
+        "height": 0.2
+      },
+      "minecraft:physics": {
+        "has_gravity": false,
+        "has_collision": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:health": {
+        "value": 1000,
+        "max": 1000
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:persistent": {},
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:interact": {
+        "interactions": [
+          {
+            "on_interact": {
+              "event": "traffic:noop"
+            },
+            "use_item": false,
+            "swing": true
+          }
+        ]
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "set_property": {
+          "traffic:group_id": 1,
+          "traffic:x_road_green": 30,
+          "traffic:z_road_green": 30,
+          "traffic:road_yellow": 4,
+          "traffic:all_red": 2,
+          "traffic:x_ped_walk": 8,
+          "traffic:x_ped_flash": 8,
+          "traffic:z_ped_walk": 8,
+          "traffic:z_ped_flash": 8,
+          "traffic:cycle_second": 0,
+          "traffic:enabled": true
+        }
+      },
+      "traffic:noop": {}
+    }
+  }
+}

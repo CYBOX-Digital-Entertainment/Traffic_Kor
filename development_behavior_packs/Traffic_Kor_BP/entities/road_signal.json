@@ -1,0 +1,122 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "traffic:road_signal",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "traffic:group_id": {
+          "type": "int",
+          "range": [
+            0,
+            99
+          ],
+          "default": 0
+        },
+        "traffic:axis": {
+          "type": "int",
+          "range": [
+            0,
+            1
+          ],
+          "default": 0
+        },
+        "traffic:road_state": {
+          "type": "int",
+          "range": [
+            0,
+            2
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "traffic:road_model_variant": {
+          "type": "int",
+          "range": [
+            0,
+            2
+          ],
+          "default": 0,
+          "client_sync": true
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "traffic",
+          "traffic_signal",
+          "road_signal"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 1.2,
+        "height": 9.5
+      },
+      "minecraft:physics": {
+        "has_gravity": false,
+        "has_collision": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:health": {
+        "value": 1000,
+        "max": 1000
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:persistent": {},
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:interact": {
+        "interactions": [
+          {
+            "on_interact": {
+              "event": "traffic:noop"
+            },
+            "use_item": false,
+            "swing": true
+          }
+        ]
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "set_property": {
+          "traffic:group_id": 0,
+          "traffic:axis": 0,
+          "traffic:road_state": 0,
+          "traffic:road_model_variant": 0
+        }
+      },
+      "traffic:set_red": {
+        "set_property": {
+          "traffic:road_state": 0
+        }
+      },
+      "traffic:set_yellow": {
+        "set_property": {
+          "traffic:road_state": 1
+        }
+      },
+      "traffic:set_green": {
+        "set_property": {
+          "traffic:road_state": 2
+        }
+      },
+      "traffic:noop": {}
+    }
+  }
+}

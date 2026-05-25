@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "traffic:gos",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/markings/gos"
+      },
+      "geometry": {
+        "default": "geometry.crossing_ahead"
+      },
+      "animations": {
+        "shadow_lift": "animation.traffic.floor_marking_shadow_lift"
+      },
+      "scripts": {
+        "animate": [
+          "shadow_lift"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.traffic.default"
+      ]
+    }
+  }
+}

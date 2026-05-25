@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "traffic:cross_small",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/markings/cross_small"
+      },
+      "geometry": {
+        "default": "geometry.cross_small"
+      },
+      "animations": {
+        "shadow_lift": "animation.traffic.floor_marking_shadow_lift"
+      },
+      "scripts": {
+        "animate": [
+          "shadow_lift"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.traffic.default"
+      ]
+    }
+  }
+}

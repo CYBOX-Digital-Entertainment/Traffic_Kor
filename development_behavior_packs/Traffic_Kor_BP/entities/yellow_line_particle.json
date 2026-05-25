@@ -1,0 +1,72 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "traffic:yellow_line_particle",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "traffic:line_shape": {
+          "type": "int",
+          "range": [0, 2],
+          "default": 0,
+          "client_sync": true
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": ["traffic", "traffic_marking", "floor_marking", "particle_marking"]
+      },
+      "minecraft:collision_box": {
+        "width": 0.4,
+        "height": 0.2
+      },
+      "minecraft:physics": {
+        "has_gravity": false,
+        "has_collision": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:health": {
+        "value": 1000,
+        "max": 1000
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:persistent": {},
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:interact": {
+        "interactions": [
+          {
+            "on_interact": {
+              "event": "traffic:noop"
+            },
+            "use_item": false,
+            "swing": true
+          }
+        ]
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "set_property": {
+          "traffic:line_shape": 0
+        }
+      },
+      "traffic:noop": {}
+    }
+  }
+}

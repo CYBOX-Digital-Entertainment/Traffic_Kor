@@ -1,0 +1,17 @@
+{
+  "format_version": "1.20.20",
+  "minecraft:item": {
+    "description": {
+      "identifier": "traffic:controller_wand"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "controller_wand"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.traffic:controller_wand.name"
+      }
+    }
+  }
+}

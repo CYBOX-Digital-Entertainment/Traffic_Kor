@@ -1,0 +1,121 @@
+{
+  "texture_data": {
+    "road_signal_wand": {
+      "textures": "textures/items/wands/road_signal_wand"
+    },
+    "ped_signal_wand": {
+      "textures": "textures/items/wands/ped_signal_wand"
+    },
+    "yellow_line_wand": {
+      "textures": "textures/items/wands/yellow_line_wand"
+    },
+    "yellow_line_particle_wand": {
+      "textures": "textures/entity/markings/yellowline"
+    },
+    "yellow_corner_wand": {
+      "textures": "textures/items/wands/yellow_corner_wand"
+    },
+    "white_corner_wand": {
+      "textures": "textures/items/wands/white_corner_wand"
+    },
+    "white_corner_side_wand": {
+      "textures": "textures/items/wands/white_corner_side_wand"
+    },
+    "white_side_left_wand": {
+      "textures": "textures/entity/markings/whiteline_side_l"
+    },
+    "white_side_right_wand": {
+      "textures": "textures/entity/markings/whiteline_side_r"
+    },
+    "white_side_left_particle_wand": {
+      "textures": "textures/entity/markings/whiteline_side_l"
+    },
+    "white_side_right_particle_wand": {
+      "textures": "textures/entity/markings/whiteline_side_r"
+    },
+    "white_line_side_l_wand": {
+      "textures": "textures/entity/markings/white_line_side_l"
+    },
+    "white_line_side_r_wand": {
+      "textures": "textures/entity/markings/white_line_side_r"
+    },
+    "white_line_side_l_particle_wand": {
+      "textures": "textures/entity/markings/white_line_side_l"
+    },
+    "white_line_side_r_particle_wand": {
+      "textures": "textures/entity/markings/white_line_side_r"
+    },
+    "crossing_ahead_wand": {
+      "textures": "textures/items/wands/crossing_ahead_wand"
+    },
+    "gos_wand": {
+      "textures": "textures/items/wands/crossing_ahead_wand"
+    },
+    "gos_tr_wand": {
+      "textures": "textures/items/wands/gos_tl_wand"
+    },
+    "tl_noti_wand": {
+      "textures": "textures/items/wands/tl_wand"
+    },
+    "tr_noti_wand": {
+      "textures": "textures/items/wands/tr_wand"
+    },
+    "controller_wand": {
+      "textures": "textures/items/wands/controller_wand"
+    },
+    "group_wand": {
+      "textures": "textures/items/wands/group_wand"
+    },
+    "remove_wand": {
+      "textures": "textures/items/wands/remove_wand"
+    },
+    "road_green_wand": {
+      "textures": "textures/items/wands/road_green_wand"
+    },
+    "yellow_time_wand": {
+      "textures": "textures/items/wands/yellow_time_wand"
+    },
+    "all_red_wand": {
+      "textures": "textures/items/wands/all_red_wand"
+    },
+    "ped_walk_wand": {
+      "textures": "textures/items/wands/ped_walk_wand"
+    },
+    "ped_flash_wand": {
+      "textures": "textures/items/wands/ped_flash_wand"
+    },
+    "gos_tl_wand": {
+      "textures": "textures/items/wands/gos_tl_wand"
+    },
+    "tr_wand": {
+      "textures": "textures/items/wands/tr_wand"
+    },
+    "tl_wand": {
+      "textures": "textures/items/wands/tl_wand"
+    },
+    "yellowline2_wand": {
+      "textures": "textures/entity/markings/yellowline2"
+    },
+    "yellowline2_particle_wand": {
+      "textures": "textures/entity/markings/yellowline2"
+    },
+    "stop_line_wand": {
+      "textures": "textures/items/wands/stop_line_wand"
+    },
+    "cross_small_wand": {
+      "textures": "textures/items/wands/cross_small_wand"
+    },
+    "cross_big_wand": {
+      "textures": "textures/items/wands/cross_big_wand"
+    },
+    "cross_small_m_wand": {
+      "textures": "textures/items/wands/cross_small_m_wand"
+    },
+    "cross_big_m_wand": {
+      "textures": "textures/items/wands/cross_big_m_wand"
+    },
+    "guideline_wand": {
+      "textures": "textures/items/wands/guideline_wand"
+    }
+  }
+}

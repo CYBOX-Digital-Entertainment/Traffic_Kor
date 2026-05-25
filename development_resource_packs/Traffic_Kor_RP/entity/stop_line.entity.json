@@ -1,0 +1,33 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "traffic:stop_line",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "frame0": "textures/entity/markings/stop_line_0",
+        "frame1": "textures/entity/markings/stop_line_1",
+        "frame2": "textures/entity/markings/stop_line_2",
+        "frame3": "textures/entity/markings/stop_line_3",
+        "frame4": "textures/entity/markings/stop_line_4",
+        "frame5": "textures/entity/markings/stop_line_5"
+      },
+      "geometry": {
+        "default": "geometry.block_w"
+      },
+      "animations": {
+        "shadow_lift": "animation.traffic.floor_marking_shadow_lift"
+      },
+      "scripts": {
+        "animate": [
+          "shadow_lift"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.traffic.stop_line"
+      ]
+    }
+  }
+}

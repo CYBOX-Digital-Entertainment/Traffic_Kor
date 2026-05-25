@@ -1,0 +1,26 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "XK Traffic System KOR RP",
+    "description": "Add-on by CYBOX DIGITAL ENTERTAINMENT",
+    "uuid": "73ad5f24-1b82-4fcc-9bcc-0d3bb7e21012",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 21, 90]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "17d7d3ea-3848-477f-aed7-7be2dc84fdb1",
+      "version": [1, 0, 0]
+    }
+  ],
+    "capabilities": [
+        "pbr"
+    ],
+  "dependencies": [
+    {
+      "uuid": "704bae3d-d372-4079-9e80-cd7b2410daec",
+      "version": [1, 0, 0]
+    }
+  ]
+}

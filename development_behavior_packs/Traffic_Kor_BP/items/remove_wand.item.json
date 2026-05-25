@@ -1,0 +1,17 @@
+{
+  "format_version": "1.20.20",
+  "minecraft:item": {
+    "description": {
+      "identifier": "traffic:remove_wand"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "remove_wand"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.traffic:remove_wand.name"
+      }
+    }
+  }
+}

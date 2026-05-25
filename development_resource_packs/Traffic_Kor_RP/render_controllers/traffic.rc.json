@@ -1,0 +1,152 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.traffic.default": {
+      "textures": [
+        "Texture.default"
+      ],
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "geometry": "Geometry.default"
+    },
+    "controller.render.traffic.line": {
+      "arrays": {
+        "geometries": {
+          "array.models": [
+            "Geometry.default",
+            "Geometry.slope32",
+            "Geometry.slope45"
+          ]
+        }
+      },
+      "textures": [
+        "Texture.default"
+      ],
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "geometry": "array.models[query.property('traffic:line_shape')]"
+    },
+    "controller.render.traffic.road_signal": {
+      "arrays": {
+        "geometries": {
+          "array.models": [
+            "Geometry.default",
+            "Geometry.variant2",
+            "Geometry.variant3"
+          ]
+        }
+      },
+      "textures": [
+        "Texture.default"
+      ],
+      "materials": [
+        {
+          "*": "Material.base"
+        },
+        {
+          "red": "Material.emissive"
+        },
+        {
+          "yellow": "Material.emissive"
+        },
+        {
+          "green": "Material.emissive"
+        }
+      ],
+      "geometry": "array.models[query.property('traffic:road_model_variant')]"
+    },
+    "controller.render.traffic.guideline": {
+      "arrays": {
+        "geometries": {
+          "array.models": [
+            "Geometry.default",
+            "Geometry.variant2",
+            "Geometry.variant3"
+          ]
+        }
+      },
+      "textures": [
+        "Texture.default"
+      ],
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "geometry": "array.models[query.property('traffic:guideline_model_variant')]"
+    },
+    "controller.render.traffic.ped_signal": {
+      "textures": [
+        "Texture.default"
+      ],
+      "materials": [
+        {
+          "*": "Material.base"
+        },
+        {
+          "red": "Material.emissive"
+        },
+        {
+          "green": "Material.emissive"
+        },
+        {
+          "man": "Material.emissive"
+        },
+        {
+          "count1": "Material.emissive"
+        },
+        {
+          "count2": "Material.emissive"
+        },
+        {
+          "count3": "Material.emissive"
+        },
+        {
+          "count4": "Material.emissive"
+        },
+        {
+          "count5": "Material.emissive"
+        },
+        {
+          "count6": "Material.emissive"
+        },
+        {
+          "count7": "Material.emissive"
+        },
+        {
+          "count8": "Material.emissive"
+        }
+      ],
+      "geometry": "Geometry.default"
+    },
+    "controller.render.traffic.stop_line": {
+      "arrays": {
+        "textures": {
+          "array.frames": [
+            "Texture.frame0",
+            "Texture.frame1",
+            "Texture.frame2",
+            "Texture.frame3",
+            "Texture.frame4",
+            "Texture.frame5"
+          ]
+        }
+      },
+      "textures": [
+        "array.frames[query.property('traffic:stop_line_frame')]"
+      ],
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "geometry": "Geometry.default"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "traffic:tl_noti",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/markings/tl_noti"
+      },
+      "geometry": {
+        "default": "geometry.noti"
+      },
+      "animations": {
+        "shadow_lift": "animation.traffic.floor_marking_shadow_lift"
+      },
+      "scripts": {
+        "animate": [
+          "shadow_lift"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.traffic.default"
+      ]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "traffic:controller",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/markings/controller"
+      },
+      "geometry": {
+        "default": "geometry.block"
+      },
+      "render_controllers": [
+        "controller.render.traffic.default"
+      ]
+    }
+  }
+}

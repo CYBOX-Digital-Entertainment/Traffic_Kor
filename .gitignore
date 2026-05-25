@@ -1,0 +1,14 @@
+*
+!.gitignore
+!.gitattributes
+!README.md
+
+!development_behavior_packs/
+development_behavior_packs/*
+!development_behavior_packs/Traffic_Kor_BP/
+!development_behavior_packs/Traffic_Kor_BP/**
+
+!development_resource_packs/
+development_resource_packs/*
+!development_resource_packs/Traffic_Kor_RP/
+!development_resource_packs/Traffic_Kor_RP/**

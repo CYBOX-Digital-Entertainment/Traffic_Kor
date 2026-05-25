@@ -1,0 +1,17 @@
+{
+  "format_version": "1.20.20",
+  "minecraft:item": {
+    "description": {
+      "identifier": "traffic:ped_flash_wand"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "ped_flash_wand"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.traffic:ped_flash_wand.name"
+      }
+    }
+  }
+}

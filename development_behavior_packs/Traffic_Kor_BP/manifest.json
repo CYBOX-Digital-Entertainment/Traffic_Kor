@@ -1,0 +1,38 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "XK Traffic System KOR BP",
+    "description": "Add-on by CYBOX DIGITAL ENTERTAINMENT",
+    "uuid": "704bae3d-d372-4079-9e80-cd7b2410daec",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 21, 90]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "d6785f3f-e8c6-4b16-9b77-3df53baee494",
+      "version": [1, 0, 0]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "7d732fdc-7072-47ec-95d3-aa3b6a3434b9",
+      "entry": "scripts/index.js",
+      "version": [1, 0, 0]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "73ad5f24-1b82-4fcc-9bcc-0d3bb7e21012",
+      "version": [1, 0, 0]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "1.18.0"
+    },
+    {
+      "module_name": "@minecraft/server-ui",
+      "version": "1.3.0"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "traffic:white_side_left",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/markings/whiteline_side_l"
+      },
+      "geometry": {
+        "default": "geometry.line_w",
+        "slope32": "geometry.line3",
+        "slope45": "geometry.line45"
+      },
+      "animations": {
+        "shadow_lift": "animation.traffic.floor_marking_shadow_lift"
+      },
+      "scripts": {
+        "animate": [
+          "shadow_lift"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.traffic.line"
+      ]
+    }
+  }
+}

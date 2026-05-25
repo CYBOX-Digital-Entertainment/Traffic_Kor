@@ -1,0 +1,415 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.traffic.road_signal.red": {
+			"loop": true,
+			"bones": {
+				"red": {
+					"scale": [1, 1, 1]
+				},
+				"yellow": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"green": {
+					"scale": [0.001, 0.001, 0.001]
+				}
+			}
+		},
+		"animation.traffic.road_signal.yellow": {
+			"loop": true,
+			"bones": {
+				"red": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"yellow": {
+					"scale": [1, 1, 1]
+				},
+				"green": {
+					"scale": [0.001, 0.001, 0.001]
+				}
+			}
+		},
+		"animation.traffic.road_signal.green": {
+			"loop": true,
+			"bones": {
+				"red": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"yellow": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"green": {
+					"scale": [1, 1, 1]
+				}
+			}
+		},
+		"animation.traffic.ped_signal.stop": {
+			"loop": true,
+			"bones": {
+				"red": {
+					"scale": [1, 1, 1]
+				},
+				"green": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count1": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count2": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count3": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count4": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count5": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count6": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count7": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count8": {
+					"scale": [0.001, 0.001, 0.001]
+				}
+			}
+		},
+		"animation.traffic.ped_signal.walk": {
+			"loop": true,
+			"bones": {
+				"red": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"green": {
+					"scale": [1, 1, 1]
+				},
+				"man": {
+					"scale": [1, 1, 1]
+				},
+				"count1": {
+					"scale": [1, 1, 1]
+				},
+				"count2": {
+					"scale": [1, 1, 1]
+				},
+				"count3": {
+					"scale": [1, 1, 1]
+				},
+				"count4": {
+					"scale": [1, 1, 1]
+				},
+				"count5": {
+					"scale": [1, 1, 1]
+				},
+				"count6": {
+					"scale": [1, 1, 1]
+				},
+				"count7": {
+					"scale": [1, 1, 1]
+				},
+				"count8": {
+					"scale": [1, 1, 1]
+				}
+			}
+		},
+		"animation.traffic.ped_signal.man_blink": {
+			"loop": true,
+			"animation_length": 1,
+			"bones": {
+				"man": {
+					"scale": {
+						"0.0": [1, 1, 1],
+						"0.45": {"pre": [1, 1, 1], "post": [1, 1, 1]},
+						"0.5": {"pre": [1, 1, 1], "post": [0.001, 0.001, 0.001]},
+						"0.95": {"pre": [0.001, 0.001, 0.001], "post": [0.001, 0.001, 0.001]},
+						"1.0": {"pre": [0.001, 0.001, 0.001], "post": [1, 1, 1]}
+					}
+				}
+			}
+		},
+		"animation.traffic.ped_signal.count8": {
+			"loop": true,
+			"bones": {
+				"red": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"green": {
+					"scale": [1, 1, 1]
+				},
+				"count1": {
+					"scale": [1, 1, 1]
+				},
+				"count2": {
+					"scale": [1, 1, 1]
+				},
+				"count3": {
+					"scale": [1, 1, 1]
+				},
+				"count4": {
+					"scale": [1, 1, 1]
+				},
+				"count5": {
+					"scale": [1, 1, 1]
+				},
+				"count6": {
+					"scale": [1, 1, 1]
+				},
+				"count7": {
+					"scale": [1, 1, 1]
+				},
+				"count8": {
+					"scale": [1, 1, 1]
+				}
+			}
+		},
+		"animation.traffic.ped_signal.count7": {
+			"loop": true,
+			"bones": {
+				"red": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"green": {
+					"scale": [1, 1, 1]
+				},
+				"count1": {
+					"scale": [1, 1, 1]
+				},
+				"count2": {
+					"scale": [1, 1, 1]
+				},
+				"count3": {
+					"scale": [1, 1, 1]
+				},
+				"count4": {
+					"scale": [1, 1, 1]
+				},
+				"count5": {
+					"scale": [1, 1, 1]
+				},
+				"count6": {
+					"scale": [1, 1, 1]
+				},
+				"count7": {
+					"scale": [1, 1, 1]
+				},
+				"count8": {
+					"scale": [0.001, 0.001, 0.001]
+				}
+			}
+		},
+		"animation.traffic.ped_signal.count6": {
+			"loop": true,
+			"bones": {
+				"red": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"green": {
+					"scale": [1, 1, 1]
+				},
+				"count1": {
+					"scale": [1, 1, 1]
+				},
+				"count2": {
+					"scale": [1, 1, 1]
+				},
+				"count3": {
+					"scale": [1, 1, 1]
+				},
+				"count4": {
+					"scale": [1, 1, 1]
+				},
+				"count5": {
+					"scale": [1, 1, 1]
+				},
+				"count6": {
+					"scale": [1, 1, 1]
+				},
+				"count7": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count8": {
+					"scale": [0.001, 0.001, 0.001]
+				}
+			}
+		},
+		"animation.traffic.ped_signal.count5": {
+			"loop": true,
+			"bones": {
+				"red": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"green": {
+					"scale": [1, 1, 1]
+				},
+				"count1": {
+					"scale": [1, 1, 1]
+				},
+				"count2": {
+					"scale": [1, 1, 1]
+				},
+				"count3": {
+					"scale": [1, 1, 1]
+				},
+				"count4": {
+					"scale": [1, 1, 1]
+				},
+				"count5": {
+					"scale": [1, 1, 1]
+				},
+				"count6": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count7": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count8": {
+					"scale": [0.001, 0.001, 0.001]
+				}
+			}
+		},
+		"animation.traffic.ped_signal.count4": {
+			"loop": true,
+			"bones": {
+				"red": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"green": {
+					"scale": [1, 1, 1]
+				},
+				"count1": {
+					"scale": [1, 1, 1]
+				},
+				"count2": {
+					"scale": [1, 1, 1]
+				},
+				"count3": {
+					"scale": [1, 1, 1]
+				},
+				"count4": {
+					"scale": [1, 1, 1]
+				},
+				"count5": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count6": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count7": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count8": {
+					"scale": [0.001, 0.001, 0.001]
+				}
+			}
+		},
+		"animation.traffic.ped_signal.count3": {
+			"loop": true,
+			"bones": {
+				"red": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"green": {
+					"scale": [1, 1, 1]
+				},
+				"count1": {
+					"scale": [1, 1, 1]
+				},
+				"count2": {
+					"scale": [1, 1, 1]
+				},
+				"count3": {
+					"scale": [1, 1, 1]
+				},
+				"count4": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count5": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count6": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count7": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count8": {
+					"scale": [0.001, 0.001, 0.001]
+				}
+			}
+		},
+		"animation.traffic.ped_signal.count2": {
+			"loop": true,
+			"bones": {
+				"red": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"green": {
+					"scale": [1, 1, 1]
+				},
+				"count1": {
+					"scale": [1, 1, 1]
+				},
+				"count2": {
+					"scale": [1, 1, 1]
+				},
+				"count3": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count4": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count5": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count6": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count7": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count8": {
+					"scale": [0.001, 0.001, 0.001]
+				}
+			}
+		},
+		"animation.traffic.ped_signal.count1": {
+			"loop": true,
+			"bones": {
+				"red": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"green": {
+					"scale": [1, 1, 1]
+				},
+				"count1": {
+					"scale": [1, 1, 1]
+				},
+				"count2": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count3": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count4": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count5": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count6": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count7": {
+					"scale": [0.001, 0.001, 0.001]
+				},
+				"count8": {
+					"scale": [0.001, 0.001, 0.001]
+				}
+			}
+		}
+	}
+}

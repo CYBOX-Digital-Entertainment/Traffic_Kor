@@ -1,0 +1,31 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "traffic:white_line_side_l_particle",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/markings/white_line_side_l"
+      },
+      "geometry": {
+        "default": "geometry.empty"
+      },
+      "particle_effects": {
+        "line": "traffic:white_line_side_l_particle_effect"
+      },
+      "animations": {
+        "controller": "controller.animation.traffic.line_particle"
+      },
+      "scripts": {
+        "animate": [
+          "controller"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.traffic.default"
+      ]
+    }
+  }
+}

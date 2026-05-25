@@ -1,0 +1,46 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.traffic.road_signal": {
+      "states": {
+        "default": {
+          "animations": [
+            { "red": "query.property('traffic:road_state') == 0" },
+            { "yellow": "query.property('traffic:road_state') == 1" },
+            { "green": "query.property('traffic:road_state') == 2" }
+          ]
+        }
+      }
+    },
+    "controller.animation.traffic.ped_signal": {
+      "states": {
+        "default": {
+          "animations": [
+            { "stop": "query.property('traffic:ped_state') == 0" },
+            { "walk": "query.property('traffic:ped_state') == 1" },
+            { "count8": "query.property('traffic:ped_state') == 2" },
+            { "count7": "query.property('traffic:ped_state') == 3" },
+            { "count6": "query.property('traffic:ped_state') == 4" },
+            { "count5": "query.property('traffic:ped_state') == 5" },
+            { "count4": "query.property('traffic:ped_state') == 6" },
+            { "count3": "query.property('traffic:ped_state') == 7" },
+            { "count2": "query.property('traffic:ped_state') == 8" },
+            { "count1": "query.property('traffic:ped_state') == 9" },
+            { "man_blink": "query.property('traffic:ped_state') >= 2 && query.property('traffic:ped_state') <= 9" }
+          ]
+        }
+      }
+    },
+    "controller.animation.traffic.line_particle": {
+      "states": {
+        "default": {
+          "particle_effects": [
+            {
+              "effect": "line"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

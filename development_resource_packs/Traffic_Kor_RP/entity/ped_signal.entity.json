@@ -1,0 +1,40 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "traffic:ped_signal",
+      "materials": {
+        "base": "entity_alphatest",
+        "emissive": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/signals/cross_traffic"
+      },
+      "geometry": {
+        "default": "geometry.cross_traffic"
+      },
+      "render_controllers": [
+        "controller.render.traffic.ped_signal"
+      ],
+      "animations": {
+        "stop": "animation.traffic.ped_signal.stop",
+        "walk": "animation.traffic.ped_signal.walk",
+        "man_blink": "animation.traffic.ped_signal.man_blink",
+        "count8": "animation.traffic.ped_signal.count8",
+        "count7": "animation.traffic.ped_signal.count7",
+        "count6": "animation.traffic.ped_signal.count6",
+        "count5": "animation.traffic.ped_signal.count5",
+        "count4": "animation.traffic.ped_signal.count4",
+        "count3": "animation.traffic.ped_signal.count3",
+        "count2": "animation.traffic.ped_signal.count2",
+        "count1": "animation.traffic.ped_signal.count1",
+        "controller": "controller.animation.traffic.ped_signal"
+      },
+      "scripts": {
+        "animate": [
+          "controller"
+        ]
+      }
+    }
+  }
+}

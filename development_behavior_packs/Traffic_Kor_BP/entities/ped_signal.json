@@ -1,0 +1,147 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "traffic:ped_signal",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "traffic:group_id": {
+          "type": "int",
+          "range": [
+            0,
+            99
+          ],
+          "default": 0
+        },
+        "traffic:axis": {
+          "type": "int",
+          "range": [
+            0,
+            1
+          ],
+          "default": 0
+        },
+        "traffic:ped_state": {
+          "type": "int",
+          "range": [
+            0,
+            9
+          ],
+          "default": 0,
+          "client_sync": true
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "traffic",
+          "traffic_signal",
+          "ped_signal"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.8,
+        "height": 3.5
+      },
+      "minecraft:physics": {
+        "has_gravity": false,
+        "has_collision": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:health": {
+        "value": 1000,
+        "max": 1000
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:persistent": {},
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:interact": {
+        "interactions": [
+          {
+            "on_interact": {
+              "event": "traffic:noop"
+            },
+            "use_item": false,
+            "swing": true
+          }
+        ]
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "set_property": {
+          "traffic:group_id": 0,
+          "traffic:axis": 0,
+          "traffic:ped_state": 0
+        }
+      },
+      "traffic:set_stop": {
+        "set_property": {
+          "traffic:ped_state": 0
+        }
+      },
+      "traffic:set_walk": {
+        "set_property": {
+          "traffic:ped_state": 1
+        }
+      },
+      "traffic:set_countdown_8": {
+        "set_property": {
+          "traffic:ped_state": 2
+        }
+      },
+      "traffic:set_countdown_7": {
+        "set_property": {
+          "traffic:ped_state": 3
+        }
+      },
+      "traffic:set_countdown_6": {
+        "set_property": {
+          "traffic:ped_state": 4
+        }
+      },
+      "traffic:set_countdown_5": {
+        "set_property": {
+          "traffic:ped_state": 5
+        }
+      },
+      "traffic:set_countdown_4": {
+        "set_property": {
+          "traffic:ped_state": 6
+        }
+      },
+      "traffic:set_countdown_3": {
+        "set_property": {
+          "traffic:ped_state": 7
+        }
+      },
+      "traffic:set_countdown_2": {
+        "set_property": {
+          "traffic:ped_state": 8
+        }
+      },
+      "traffic:set_countdown_1": {
+        "set_property": {
+          "traffic:ped_state": 9
+        }
+      },
+      "traffic:noop": {}
+    }
+  }
+}
