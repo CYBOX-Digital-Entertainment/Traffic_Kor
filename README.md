@@ -45,14 +45,6 @@ com.mojang/
 
 이 과정만으로 기본 교차로를 구성할 수 있습니다.
 
-### 추가 도구
-
-파티클 기반 사선 차선 도구는 별도 함수로 받을 수 있습니다.
-
-```mcfunction
-/function traffic/give_particle_tools
-```
-
 ### 도구 동작
 
 - 배치 도구: 블록 윗면에 해당 교통 엔티티를 배치합니다.
@@ -141,14 +133,6 @@ If you downloaded a zip, place `Traffic_Kor_BP` in `development_behavior_packs` 
 7. Use the `Traffic Control Wand` on the controller to open the timing settings UI.
 
 That is enough for the simplest working intersection.
-
-### Extra Tools
-
-Particle-based diagonal line tools are available through a separate function.
-
-```mcfunction
-/function traffic/give_particle_tools
-```
 
 ### Wand Behavior
 
